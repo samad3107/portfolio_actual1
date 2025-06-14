@@ -1,19 +1,21 @@
-document.getElementById('portfolioForm').addEventListener('submit', function (e) {
-  e.preventDefault();
+document
+  .getElementById("portfolioForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  const form = e.target;
-  const name = form.name.value.trim();
-  const profession = form.profession.value.trim();
-  const bio = form.bio.value.trim();
-  const skills = form.skills.value.split(',').map(s => s.trim());
-  const projects = form.projects.value.split(',').map(p => p.trim());
-  const education = form.education.value.trim();
-  const experience = form.experience.value.trim();
-  const email = form.email.value.trim();
-  const phone = form.phone.value.trim();
-  const linkedin = form.linkedin.value.trim();
+    const form = e.target;
+    const name = form.name.value.trim();
+    const profession = form.profession.value.trim();
+    const bio = form.bio.value.trim();
+    const skills = form.skills.value.split(",").map((s) => s.trim());
+    const projects = form.projects.value.split(",").map((p) => p.trim());
+    const education = form.education.value.trim();
+    const experience = form.experience.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const linkedin = form.linkedin.value.trim();
 
-  const htmlContent = `
+    const htmlContent = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -37,34 +39,48 @@ document.getElementById('portfolioForm').addEventListener('submit', function (e)
         }
 
         header {
-          background: linear-gradient(to right, #007bff, #00c6ff);
-          color: white;
-          padding: 30px 0;
-          text-align: center;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+  background: linear-gradient(to right, #7b1fa2, #9c27b0);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-        h1, h3 {
-          margin: 0;
-        }
+.section {
+  margin: 30px auto;
+  padding: 20px 30px 35px;
+  max-width: 900px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(156, 39, 176, 0.15);
+  position: relative;
+  animation: fadeIn 0.8s ease;
+}
 
-        .section {
-          margin: 30px auto;
-          padding: 20px 30px 35px;
-          max-width: 900px;
-          background: white;
-          border-radius: 15px;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-          position: relative;
-          animation: fadeIn 0.8s ease;
-        }
+.section h4 {
+  color: #7b1fa2;
+  margin-bottom: 8px;
+  font-weight: 600;
+  position: relative;
+}
 
-        .section h4 {
-          color: #007bff;
-          margin-bottom: 8px;
-          font-weight: 600;
-          position: relative;
-        }
+a {
+  color: #7b1fa2;
+  text-decoration: none;
+}
+
+.export button {
+  background-color: #7b1fa2;
+  /* ... */
+  box-shadow: 0 4px 15px rgba(123, 31, 162, 0.3);
+}
+
+.export button:hover {
+  background-color: #512da8;
+  /* ... */
+  box-shadow: 0 6px 20px rgba(123, 31, 162, 0.4);
+}
+
 
         .divider {
           height: 1px;
@@ -131,13 +147,13 @@ document.getElementById('portfolioForm').addEventListener('submit', function (e)
       <div class="section">
         <h4>Skills</h4>
         <div class="divider"></div>
-        <ul>${skills.map(skill => `<li>${skill}</li>`).join('')}</ul>
+        <ul>${skills.map((skill) => `<li>${skill}</li>`).join("")}</ul>
       </div>
 
       <div class="section">
         <h4>Projects</h4>
         <div class="divider"></div>
-        <ul>${projects.map(project => `<li>${project}</li>`).join('')}</ul>
+        <ul>${projects.map((project) => `<li>${project}</li>`).join("")}</ul>
       </div>
 
       <div class="section">
@@ -175,7 +191,9 @@ document.getElementById('portfolioForm').addEventListener('submit', function (e)
           const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
           const link = document.createElement('a');
           link.href = URL.createObjectURL(blob);
-          link.download = '${name.toLowerCase().replace(/\s+/g, '-')}-portfolio.html';
+          link.download = '${name
+            .toLowerCase()
+            .replace(/\s+/g, "-")}-portfolio.html';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -185,7 +203,7 @@ document.getElementById('portfolioForm').addEventListener('submit', function (e)
     </html>
   `;
 
-  const newWindow = window.open('', '_blank');
-  newWindow.document.write(htmlContent);
-  newWindow.document.close();
-});
+    const newWindow = window.open("", "_blank");
+    newWindow.document.write(htmlContent);
+    newWindow.document.close();
+  });
