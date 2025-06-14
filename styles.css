@@ -1,6 +1,6 @@
 /* Reset and Base Styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #e0f7fa, #e1bee7);
   color: #333;
   line-height: 1.6;
@@ -42,6 +42,77 @@ h1 {
   animation: fadeIn 1s ease-in-out;
 }
 
+.glassy-heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #6a1b9a;
+  position: relative;
+  padding-bottom: 8px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.3s ease;
+}
+
+/* Soft underline with a gradient */
+.glassy-heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #6a1b9a;
+  position: relative;
+  padding-bottom: 8px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.glassy-heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7b1fa2, #512da8);
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+/* 3D bubble effect using text-shadow */
+.glassy-heading::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  right: 0;
+  bottom: 0;
+  color: #ffd1ff;
+  z-index: -1;
+  filter: blur(3px);
+  opacity: 0.7;
+  border-radius: 50px;
+}
+
+/* Hover effect to slightly scale and add glow */
+.glassy-heading:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+@keyframes bubbleFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -57,20 +128,17 @@ h1 {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="password"],
 textarea {
   font-size: 1rem;
   padding: 12px;
   border-radius: 10px;
   border: 2px solid #d1c4e9;
   background-color: #f3e5f5;
-  transition: 
-    border-color 0.3s ease,
-    background-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.2s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease, transform 0.2s ease;
   margin-bottom: 15px;
 }
-
 input:focus,
 textarea:focus {
   border-color: #7e57c2;
@@ -105,10 +173,7 @@ button[type="submit"] {
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: 
-    background 0.3s ease,
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(123, 31, 162, 0.3);
 }
 
@@ -128,4 +193,21 @@ button[type="submit"]:hover {
   h1 {
     font-size: 2rem;
   }
+}
+
+input,
+textarea,
+select {
+  background-color: #f3e5f5 !important;
+  border: 2px solid #d1c4e9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+.glassy-heading:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.glassy-heading:hover::after {
+  transform: scaleX(1.2);
 }
