@@ -6,9 +6,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f3e8ff; /* lighter purple background */
+      background: linear-gradient(to right, #f3e8ff, #e1bee7);
       font-family: 'Segoe UI', sans-serif;
-      padding: 40px;
+      margin: 0;
+      padding: 40px 20px;
+      overflow-x: hidden;
     }
 
     .about-container {
@@ -19,6 +21,16 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .about-container h1 {
@@ -37,6 +49,7 @@
       font-size: 1.1rem;
       color: #343a40;
       margin-bottom: 30px;
+      animation: fadeIn 2s ease-in;
     }
 
     .purple-btn {
@@ -47,64 +60,72 @@
       font-size: 1rem;
       border-radius: 50px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .purple-btn:hover {
       background-color: #9c6fd1;
+      transform: scale(1.05);
     }
+
     .site-footer {
-  background: transparent;
-  color: #6f42c1;
-  text-align: center;
-  font-size: 0.95rem;
-  padding: 30px 20px 20px;
-  margin-top: 40px;
-}
+      background: transparent;
+      color: #6f42c1;
+      text-align: center;
+      font-size: 0.95rem;
+      padding: 30px 20px 20px;
+      margin-top: 40px;
+      animation: fadeIn 2s ease;
+    }
 
-.footer-container {
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-}
+    .footer-container a {
+      color: #6f42c1;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
 
-.footer-container a {
-  color: #6f42c1;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s ease;
-}
+    .footer-container a:hover {
+      color: #9c6fd1;
+      text-decoration: underline;
+    }
 
-.footer-container a:hover {
-  color: #9c6fd1;
-  text-decoration: underline;
-}
-
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="about-container">
-    <h1>About PortfolioForge</h1>
+    <h1>About ShowFolio</h1>
     <hr>
     <p>
-      PortfolioForge is your one-click solution to building stunning personal portfolios.
+      ShowFolio is your one-click solution to building stunning personal portfolios.
       Whether you're a developer, designer, or student — we help you showcase your skills and experience professionally.
     </p>
     <a href="index.html">
       <button class="purple-btn">Create Your Portfolio ✨</button>
     </a>
   </div>
+
   <footer class="site-footer">
-  <div class="footer-container">
-    <p>© 2025 Portfolio Generator. All rights reserved.</p>
-    <p>
-      <a href="mailto:support@portfoliogenerator.com">support@portfoliogenerator.com</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms</a>
-    </p>
-  </div>
-</footer>
+    <div class="footer-container">
+      <p>© 2025 ShowFolio. All rights reserved.</p>
+      <p>
+        <a href="mailto:support@showfolio.com">support@showfolio.com</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms</a>
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
