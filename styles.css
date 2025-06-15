@@ -1,12 +1,10 @@
 /* Reset and Base Styles */
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #e0f7fa, #e1bee7);
+  font-family: "Poppins", sans-serif; /* soft pink to lavender */
+  background-attachment: fixed;
   color: #333;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  transition: background 0.6s ease;
+  background: radial-gradient(circle at top left, #fce4ec, #f3e5f5, #ede7f6);
 }
 
 /* Container Styling */
@@ -33,13 +31,21 @@ body {
 
 /* Heading */
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 2.2rem;
   color: #6a1b9a;
-  margin-bottom: 30px;
+  padding: 15px 25px;
+  border-radius: 20px;
   text-align: center;
-  position: relative;
-  animation: fadeIn 1s ease-in-out;
+  background: linear-gradient(
+    to right,
+    #f3e5f5,
+    #ede7f6
+  ); /* warm pastel purple */
+  box-shadow: 0 12px 28px rgba(123, 31, 162, 0.15),
+    0 0 8px rgba(156, 39, 176, 0.1);
+  transition: all 0.3s ease;
 }
 
 .glassy-heading {
@@ -231,4 +237,68 @@ select {
 .footer-container a:hover {
   color: #512da8;
   text-decoration: underline;
+}
+
+/* Bubble-style inputs */
+.glassy-form input,
+.glassy-form textarea {
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-size: 0.95rem;
+  border: 1.5px solid #d1c4e9;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: "Poppins", sans-serif;
+  color: #4a148c;
+  box-shadow: 0 4px 10px rgba(123, 31, 162, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Focus effect */
+.glassy-form input:focus,
+.glassy-form textarea:focus {
+  outline: none;
+  border-color: #7b1fa2;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(123, 31, 162, 0.3);
+  transform: scale(1.02);
+}
+
+/* Rounded textareas too */
+.glassy-form textarea {
+  border-radius: 30px;
+  resize: none;
+}
+
+/* Placeholder styling */
+.glassy-form ::placeholder {
+  color: #7b1fa2;
+  opacity: 0.6;
+  font-style: italic;
+  transition: opacity 0.3s ease;
+}
+
+.glassy-form input:focus::placeholder,
+.glassy-form textarea:focus::placeholder {
+  opacity: 0.2;
+}
+
+/* Label headings */
+.glassy-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #6a1b9a;
+  margin-bottom: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+/* Section card */
+.section {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 6px 24px rgba(123, 31, 162, 0.1);
+  animation: fadeIn 0.8s ease;
+  margin-bottom: 30px;
 }
