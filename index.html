@@ -1,68 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Portfolio Generator</title>
-  <link href="styles.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    input::placeholder,
-    textarea::placeholder {
-      text-align: center;
-      color: #999;
-      opacity: 1;
-      transition: opacity 0.2s ease;
-    }
+  <head>
+    <title>Portfolio Generator</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      input::placeholder,
+      textarea::placeholder {
+        text-align: center;
+        color: #999;
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      }
 
-    input:focus::placeholder,
-    textarea:focus::placeholder {
-      opacity: 0; /* Placeholder disappears completely on focus */
-    }
+      input:focus::placeholder,
+      textarea:focus::placeholder {
+        opacity: 0; /* Placeholder disappears completely on focus */
+      }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-      text-align: center;
-    }
-  </style>
-</head>
-<body class="container mt-5">
-  <h1 class="">Create Your Portfolio</h1>
-  <form id="portfolioForm">
-    <!-- Basic Info -->
-    <input class="form-control mb-2" type="text" placeholder="Full Name" name="name" required>
-    <input class="form-control mb-2" type="text" placeholder="Profession" name="profession">
-    <textarea class="form-control mb-2" placeholder="About Me" name="bio"></textarea>
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+        text-align: center;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <!-- Skills & Projects -->
-    <input class="form-control mb-2" type="text" placeholder="Skills (comma separated)" name="skills">
-    <input class="form-control mb-2" type="text" placeholder="Projects (comma separated)" name="projects">
+  </head>
+  <body class="container mt-5">
+    <h1 class="">Create Your Portfolio</h1>
+    <form id="portfolioForm" class="glassy-form">
+      <!-- 👤 Basic Information -->
+      <div class="section mb-4">
+        <h4 class="glassy-heading" data-text="Basic Info">
+          👤 Basic Information
+        </h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Full Name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Profession"
+              name="profession"
+            />
+          </div>
+        </div>
+        <textarea
+          class="form-control mt-3"
+          rows="3"
+          placeholder="About Me"
+          name="bio"
+        ></textarea>
+      </div>
 
-    <!-- Education -->
-    <textarea class="form-control mb-2" type="text" placeholder="Educational Qualifications" name="education"></textarea>
+      <!-- 🛠 Skills & Projects -->
+      <div class="section mb-4">
+        <h4 class="glassy-heading" data-text="Skills & Projects">
+          🛠 Skills & Projects
+        </h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Skills (comma separated)"
+              name="skills"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Projects (comma separated)"
+              name="projects"
+            />
+          </div>
+        </div>
+      </div>
 
-    <!-- Work Experience -->
-    <textarea class="form-control mb-2" type="text" placeholder="Work Experience" name="experience"></textarea>
+      <!-- 🎓 Education -->
+      <div class="section mb-4">
+        <h4 class="glassy-heading" data-text="Education">🎓 Education</h4>
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Educational Qualifications"
+          name="education"
+        ></textarea>
+      </div>
 
-    <!-- Contact Info -->
-    <input class="form-control mb-2" type="email" placeholder="Email" name="email">
-    <input class="form-control mb-2" type="tel" placeholder="Phone Number" name="phone">
-    <input class="form-control mb-2" type="text" placeholder="LinkedIn Profile URL" name="linkedin">
+      <!-- 💼 Work Experience -->
+      <div class="section mb-4">
+        <h4 class="glassy-heading" data-text="Experience">
+          💼 Work Experience
+        </h4>
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Work Experience"
+          name="experience"
+        ></textarea>
+      </div>
 
-    <!-- Submit -->
-    <button class="btn btn-primary mt-3" type="submit">Generate Portfolio</button>
-  </form>
-  <footer class="site-footer">
-  <div class="footer-container">
-    <p>© 2025 Portfolio Generator. All rights reserved.</p>
-    <p>
-      <a href="mailto:support@portfoliogenerator.com">support@portfoliogenerator.com</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms</a>
-    </p>
-  </div>
-</footer>
+      <!-- 📬 Contact Info -->
+      <div class="section mb-4">
+        <h4 class="glassy-heading" data-text="Contact Info">
+          📬 Contact Information
+        </h4>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <input
+              class="form-control"
+              type="email"
+              placeholder="Email"
+              name="email"
+            />
+          </div>
+          <div class="col-md-4">
+            <input
+              class="form-control"
+              type="tel"
+              placeholder="Phone Number"
+              name="phone"
+            />
+          </div>
+          <div class="col-md-4">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="LinkedIn Profile URL"
+              name="linkedin"
+            />
+          </div>
+        </div>
+      </div>
 
-  <script src="script.js"></script>
-</body>
+      <!-- 🚀 Submit Button -->
+      <div class="text-center">
+        <button class="btn btn-primary btn-lg mt-3" type="submit">
+          🚀 Generate Portfolio
+        </button>
+      </div>
+    </form>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p>© 2025 Portfolio Generator. All rights reserved.</p>
+        <p>
+          <a href="mailto:support@portfoliogenerator.com"
+            >support@portfoliogenerator.com</a
+          >
+          | <a href="#">Privacy Policy</a> |
+          <a href="#">Terms</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
