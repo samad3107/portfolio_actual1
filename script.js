@@ -5,8 +5,8 @@ document.getElementById("portfolioForm").addEventListener("submit", function (e)
   const name = form.name.value.trim();
   const profession = form.profession.value.trim();
   const bio = form.bio.value.trim();
-  const skills = form.skills.value.split(",").map(s => s.trim());
-  const projects = form.projects.value.split(",").map(p => p.trim());
+  const skills = form.skills.value.split(",").map((s) => s.trim());
+  const projects = form.projects.value.split(",").map((p) => p.trim());
   const education = form.education.value.trim();
   const experience = form.experience.value.trim();
   const email = form.email.value.trim();
@@ -20,21 +20,22 @@ document.getElementById("portfolioForm").addEventListener("submit", function (e)
     <meta charset="UTF-8" />
     <title>${name}'s Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
       body {
         font-family: 'Poppins', sans-serif;
         background: linear-gradient(to right, #fce4ec, #f3e5f5);
         color: #333;
-        padding-bottom: 60px;
+        padding: 40px 0 60px;
       }
       header {
         background: linear-gradient(to right, #7b1fa2, #9c27b0);
         color: white;
         padding: 30px 0;
         text-align: center;
+        border-radius: 12px;
+        margin-bottom: 30px;
       }
       .section {
         margin: 30px auto;
@@ -47,6 +48,7 @@ document.getElementById("portfolioForm").addEventListener("submit", function (e)
       .section h4 {
         color: #7b1fa2;
         margin-bottom: 8px;
+        font-weight: 600;
       }
       .divider {
         height: 1px;
@@ -55,6 +57,13 @@ document.getElementById("portfolioForm").addEventListener("submit", function (e)
       }
       ul {
         padding-left: 20px;
+      }
+      a {
+        color: #7b1fa2;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
       }
       footer {
         text-align: center;
@@ -74,9 +83,11 @@ document.getElementById("portfolioForm").addEventListener("submit", function (e)
         padding: 10px 20px;
         font-weight: 500;
         cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
       }
       .export button:hover {
         background-color: #512da8;
+        transform: scale(1.05);
       }
     </style>
   </head>
@@ -119,11 +130,15 @@ document.getElementById("portfolioForm").addEventListener("submit", function (e)
     <div class="section">
       <h4>Contact</h4>
       <div class="divider"></div>
-      <p>Email: ${email}<br>Phone: ${phone}<br>LinkedIn: ${linkedin}</p>
+      <p>
+        Email: <a href="mailto:${email}">${email}</a><br>
+        Phone: ${phone}<br>
+        LinkedIn: <a href="${linkedin}" target="_blank">${linkedin}</a>
+      </p>
     </div>
 
     <div class="section export">
-      <button id="downloadBtn">📄 Download Portfolio as PDF</button>
+      <button onclick="downloadPortfolio()">⬇️ Download Portfolio</button>
     </div>
 
     <footer>
@@ -131,19 +146,15 @@ document.getElementById("portfolioForm").addEventListener("submit", function (e)
     </footer>
 
     <script>
-      // Wait for page styles to fully apply
-      window.addEventListener("load", function () {
-        document.getElementById("downloadBtn").addEventListener("click", function () {
-          const content = document.body;
-          html2pdf().set({
-            margin: 0.5,
-            filename: '${name.toLowerCase().replace(/\s+/g, "-")}-portfolio.pdf',
-            image: { type: "jpeg", quality: 0.98 },
-            html2canvas: { scale: 2 },
-            jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
-          }).from(content).save();
-        });
-      });
+      function downloadPortfolio() {
+        const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = '${name.toLowerCase().replace(/\s+/g, "-")}-portfolio.html';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     </script>
   </body>
   </html>
